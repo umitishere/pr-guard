@@ -1,0 +1,16 @@
+# PR Guard Agent Rules
+- never commit secrets
+- never log secrets
+- never log raw webhook signatures
+- never log Authorization headers
+- never store GitHub private keys in source code
+- keep methods small
+- keep cyclomatic complexity low
+- validate inputs
+- verify webhook signatures
+- use safe SQL migrations
+- use IF NOT EXISTS where appropriate
+- add tests for new behavior
+- keep GitHub permissions minimal
+- do not over-engineer
+- prefer deterministic scanner rules before AI

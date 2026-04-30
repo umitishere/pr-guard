@@ -1,0 +1,14 @@
+target/
+*.log
+.env
+.env.*
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.keystore
+application-local.yml
+application-prod.yml
+secrets/
+.DS_Store
