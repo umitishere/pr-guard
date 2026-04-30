@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS github_installation (
     id BIGSERIAL PRIMARY KEY,
     installation_id BIGINT UNIQUE NOT NULL,
     account_login VARCHAR(255),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS github_repository (
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS github_repository (
     repository_id BIGINT UNIQUE NOT NULL,
     full_name VARCHAR(255) NOT NULL,
     installation_id BIGINT,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS scan (
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS scan (
     repository_id BIGINT,
     pull_request_number INT,
     status VARCHAR(32) NOT NULL,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS finding (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS finding (
     message TEXT,
     severity VARCHAR(32),
     confidence VARCHAR(32),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS webhook_event (
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS webhook_event (
     pull_request_number INT,
     payload_sha256 VARCHAR(64) NOT NULL,
     status VARCHAR(32) NOT NULL,
-    received_at TIMESTAMPTZ NOT NULL,
-    processed_at TIMESTAMPTZ,
+    received_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    processed_at TIMESTAMP WITH TIME ZONE,
     error_message VARCHAR(255)
 );
